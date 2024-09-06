@@ -2,7 +2,8 @@ import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 Given("that I am on the first page", () => {
   // TODO: implement step
-  cy.visit("/landingpage");
+  // cy.loginAsAdmin();
+  cy.visit("https://localhost:7259/swagger/index.html");
 });
 
 When("I click on the logo", () => {
