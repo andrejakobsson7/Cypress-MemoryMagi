@@ -4,6 +4,15 @@ const baseUrl = require("../baseUrl");
 
 Cypress.Commands.add("visitCreatePage", () => {
   cy.visit("/create");
+  cy.url().should("include", "/create");
+});
+Cypress.Commands.add("visitHomePage", () => {
+  cy.visit("/");
+  cy.url().should("eq", "http://localhost:3000/");
+  cy.intercept(
+    "https://localhost:7259/api/Category/GetCategoriesWithIncludedData"
+  ).as("getCategories");
+  cy.wait("@getCategories");
 });
 
 Cypress.Commands.add("apiLogin", (username, password) => {
@@ -56,5 +65,57 @@ Cypress.Commands.add("cleanUp", (url) => {
     headers: { Authorization: `Bearer ${accessToken}` },
   }).then((response) => {
     expect(response).to.have.property("status", 200);
+  });
+});
+
+Cypress.Commands.add(
+  "makePost",
+  (url, obj, requiredEnvironmentVariableName) => {
+    const localStorageObj = JSON.parse(
+      window.localStorage.getItem("accessToken")
+    );
+    const accessToken = localStorageObj.accessToken;
+    cy.request({
+      url: url,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify(obj),
+    }).then((response) => {
+      expect(response).to.have.property("status", 201);
+      Cypress.env(requiredEnvironmentVariableName, response.body);
+    });
+  }
+);
+
+Cypress.Commands.add("apiRegister", (username, password) => {
+  cy.request("POST", "https://localhost:7259/register", {
+    email: username,
+    password: password,
+  }).then((response) => {
+    expect(response).to.have.property("status", 200);
+  });
+});
+
+Cypress.Commands.add("apiLogout", () => {
+  const localStorageObj = JSON.parse(
+    window.localStorage.getItem("accessToken")
+  );
+  const accessToken = localStorageObj.accessToken;
+  cy.request({
+    url: "https://localhost:7259/logout",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify({}),
+  }).then((response) => {
+    expect(response).to.have.property("status", 200);
+    if (response.status === 200) {
+      cy.clearLocalStorage();
+    }
   });
 });
