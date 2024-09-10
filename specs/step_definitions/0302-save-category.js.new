@@ -1,0 +1,46 @@
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+
+/* No duplicate steps, this one already in 0301-preview-category.js
+Given('that I am logged in', () => {});*/
+
+/* No duplicate steps, this one already in 0301-preview-category.js
+Given('standing on the create page', () => {});*/
+
+/* No duplicate steps, this one already in 0301-preview-category.js
+Given('I have opened the add category-modal', () => {});*/
+
+/* No duplicate steps, this one already in 0301-preview-category.js
+Given('that I have already typed in category name field and image-url field', () => {});*/
+
+When('I click the save category-button', () => {
+  // TODO: implement step
+});
+
+Then('I should see {string} in the list of available categories', (a) => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already in 0301-preview-category.js
+Given('that I have already typed in category name field and image-url field', () => {});*/
+
+/* No duplicate steps, this one already in 0301-preview-category.js
+When('I clear the category name field', () => {});*/
+
+/* No duplicate steps, this one already above
+When('I click the save category-button', () => {});*/
+
+Then('I should see an error message', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already in 0301-preview-category.js
+Given('that I have already typed in category name field and image-url field', () => {});*/
+
+/* No duplicate steps, this one already in 0301-preview-category.js
+When('I clear the image-url field', () => {});*/
+
+/* No duplicate steps, this one already above
+When('I click the save category-button', () => {});*/
+
+/* No duplicate steps, this one already above
+Then('I should see an error message', () => {});*/

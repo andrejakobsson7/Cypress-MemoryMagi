@@ -1,0 +1,61 @@
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+
+Given('that I am logged in', () => {
+  // TODO: implement step
+});
+
+Given('standing on the create page', () => {
+  // TODO: implement step
+});
+
+Given('I have opened the add category-modal', () => {
+  // TODO: implement step
+});
+
+When('I type {string} in the category name field', (a) => {
+  // TODO: implement step
+});
+
+When('I type {string} in the image-url field', (a) => {
+  // TODO: implement step
+});
+
+Then('I should see a preview containing {string} and the image src should be {string}', (a, b) => {
+  // TODO: implement step
+});
+
+Given('that I have already typed in category name field and image-url field', () => {
+  // TODO: implement step
+});
+
+When('I clear the category name field', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+When('I type {string} in the category name field', (a) => {});*/
+
+When('I clear the image-url field', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+When('I type {string} in the image-url field', (a) => {});*/
+
+/* No duplicate steps, this one already above
+Then('I should see a preview containing {string} and the image src should be {string}', (a, b) => {});*/
+
+/* No duplicate steps, this one already above
+Given('that I have already typed in category name field and image-url field', () => {});*/
+
+When('I click the button to remove already added image', () => {
+  // TODO: implement step
+});
+
+Then('the image should disappear', () => {
+  // TODO: implement step
+});
+
+Then('the image-url field should be {string}', (a) => {
+  // TODO: implement step
+});

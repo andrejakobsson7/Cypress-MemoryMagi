@@ -113,7 +113,7 @@ before(() => {
           "newPrivateGame"
         ).then(() => {
           //Log out
-          cy.apiLogout();
+          //cy.apiLogout(); << -- Kommentera ut  dennna för den gav error i Cypress test - Andre godkände
         });
       });
     });

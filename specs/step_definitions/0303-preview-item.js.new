@@ -1,0 +1,44 @@
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+
+/* No duplicate steps, this one already in 0301-preview-category.js
+Given('that I am logged in', () => {});*/
+
+/* No duplicate steps, this one already in 0301-preview-category.js
+Given('standing on the create page', () => {});*/
+
+Given('I have opened the add item-modal', () => {
+  // TODO: implement step
+});
+
+When('I type {string} in the item name field', (a) => {
+  // TODO: implement step
+});
+
+When('I type {string} in the item image-url field', (a) => {
+  // TODO: implement step
+});
+
+Then('I should see a preview containing {string} and the item image src should be {string}', (a, b) => {
+  // TODO: implement step
+});
+
+Given('that I have already typed in {string} in the item name field and {string} in the image-url field', (a, b) => {
+  // TODO: implement step
+});
+
+When('I clear the item name field', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+When('I type {string} in the item name field', (a) => {});*/
+
+When('I clear the item image-url field', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+When('I type {string} in the item image-url field', (a) => {});*/
+
+/* No duplicate steps, this one already above
+Then('I should see a preview containing {string} and the item image src should be {string}', (a, b) => {});*/
