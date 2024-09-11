@@ -1,0 +1,63 @@
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+
+Given('that first user has created one public game and one private game', () => {
+  // TODO: implement step
+});
+
+Given('that I am signed in as first user', () => {
+  // TODO: implement step
+});
+
+Given('standing on the home page', () => {
+  // TODO: implement step
+});
+
+When('I click the button to filter on public games', () => {
+  // TODO: implement step
+});
+
+Then('I should see the public game that first user created', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+Given('that I am signed in as first user', () => {});*/
+
+/* No duplicate steps, this one already above
+Given('standing on the home page', () => {});*/
+
+When('I click the button to filter on private games', () => {
+  // TODO: implement step
+});
+
+Then('I should see the private game that first user created', () => {
+  // TODO: implement step
+});
+
+Given('that I have just registered as new user', () => {
+  // TODO: implement step
+});
+
+Given('I have logged in as new user', () => {
+  // TODO: implement step
+});
+
+When('I am standing on the home page', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+When('I click the button to filter on public games', () => {});*/
+
+/* No duplicate steps, this one already above
+Then('I should see the public game that first user created', () => {});*/
+
+/* No duplicate steps, this one already above
+When('I am standing on the home page', () => {});*/
+
+/* No duplicate steps, this one already above
+When('I click the button to filter on private games', () => {});*/
+
+Then('I should not see the private game that first user created', () => {
+  // TODO: implement step
+});
