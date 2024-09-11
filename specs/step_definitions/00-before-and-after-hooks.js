@@ -111,10 +111,7 @@ before(() => {
           "https://localhost:7259/api/game/PostGame",
           newPrivateGame,
           "newPrivateGame"
-        ).then(() => {
-          //Log out
-          //cy.apiLogout(); << -- Kommentera ut  dennna för den gav error i Cypress test - Andre godkände
-        });
+        );
       });
     });
   });
@@ -132,6 +129,9 @@ after(() => {
     //Remove difficulty level
     cy.cleanUp(
       `https://localhost:7259/api/DifficultyLevel/DeleteDifficultyLevel?difficultyLevelId=${newPrivateGame.DifficultyLevelId}`
-    );
+    ).then(() => {
+      //Log out
+      cy.apiLogout();
+    });
   });
 });
