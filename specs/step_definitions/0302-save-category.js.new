@@ -16,7 +16,7 @@ When('I click the save category-button', () => {
   // TODO: implement step
 });
 
-Then('I should see {string} in the list of available categories', (a) => {
+Then('I should see category name in the list of available categories', () => {
   // TODO: implement step
 });
 
@@ -29,7 +29,7 @@ When('I clear the category name field', () => {});*/
 /* No duplicate steps, this one already above
 When('I click the save category-button', () => {});*/
 
-Then('I should see an error message', () => {
+Then('I should see an error message about missing category name', () => {
   // TODO: implement step
 });
 
@@ -42,5 +42,6 @@ When('I clear the image-url field', () => {});*/
 /* No duplicate steps, this one already above
 When('I click the save category-button', () => {});*/
 
-/* No duplicate steps, this one already above
-Then('I should see an error message', () => {});*/
+Then('I should see an error message about missing category image', () => {
+  // TODO: implement step
+});

@@ -1,5 +1,13 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+import { Guid } from "js-guid";
 
+const newCategoryName = Guid.newGuid().toString();
+
+/*
+***
+Background
+***
+*/
 Given("that I am logged in", () => {
   cy.apiLogin("admin", "PasswordAdmin1!");
 });
@@ -10,9 +18,15 @@ Given("standing on the create page", () => {
 });
 
 Given("I have opened the add category-modal", () => {
-  cy.get(".btn-secondary").click();
+  cy.get(".create-secondary-button").click();
   cy.get(".modal-body").should("be.visible");
 });
+
+/*
+***
+Scenario: Show preview information
+***
+*/
 
 When("I type {string} in the category name field", (categoryName) => {
   cy.get("#formCategoryName").type(categoryName);
@@ -30,11 +44,17 @@ Then(
   }
 );
 
+/*
+***
+Scenario: Update preview information
+***
+*/
+
 Given(
   "that I have already typed in category name field and image-url field",
   () => {
     cy.enterCategoryInfo(
-      "Hogwarts",
+      newCategoryName,
       "https://cdn.pixabay.com/photo/2023/05/17/19/34/hogwarts-8000905_1280.png"
     );
   }
@@ -57,17 +77,28 @@ When('I type {string} in the image-url field', (a) => {});*/
 /* No duplicate steps, this one already above
 Then('I should see a preview containing {string} and the image src should be {string}', (a, b) => {});*/
 
+/*
+***
+Scenario: Close and reopen add category-modal
+***
+*/
 /* No duplicate steps, this one already above
 Given('that I have already typed in category name field and image-url field', () => {});*/
 
-When("I click the button to remove already added image", () => {
-  cy.get(".remove-image-button").click();
+Given("I have closed the modal", () => {
+  cy.get(".btn-close").click();
 });
 
-Then("the image should disappear", () => {
+When("I open the modal again", () => {
+  cy.get(".create-secondary-button").click();
+});
+
+Then("the input fields should be empty", () => {
+  cy.get("#formCategoryName").should("have.value", "");
+  cy.get("#formCategoryImage").should("have.value", "");
+});
+
+Then("the preview should be restored", () => {
   cy.get("img").should("not.exist");
-});
-
-Then("the image-url field should be {string}", (emptyString) => {
-  cy.get("#formCategoryImage").should("have.value", emptyString);
+  cy.get(".category-name").should("not.have.text", newCategoryName);
 });

@@ -42,3 +42,22 @@ When('I type {string} in the item image-url field', (a) => {});*/
 
 /* No duplicate steps, this one already above
 Then('I should see a preview containing {string} and the item image src should be {string}', (a, b) => {});*/
+
+/* No duplicate steps, this one already above
+Given('that I have already typed in {string} in the item name field and {string} in the image-url field', (a, b) => {});*/
+
+Given('I have closed the add item-modal', () => {
+  // TODO: implement step
+});
+
+When('I open the add item-modal again', () => {
+  // TODO: implement step
+});
+
+Then('the item-input fields should be empty', () => {
+  // TODO: implement step
+});
+
+Then('the item-preview should be restored', () => {
+  // TODO: implement step
+});

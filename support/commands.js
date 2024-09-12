@@ -3,8 +3,20 @@
 const baseUrl = require("../baseUrl");
 
 Cypress.Commands.add("visitCreatePage", () => {
+  cy.intercept("https://localhost:7259/api/category/GetCategories").as(
+    "getCategoriesForCreatePage"
+  );
+  cy.intercept(
+    "https://localhost:7259/api/difficultylevel/GetAllDifficultyLevels"
+  ).as("getDifficultyLevelsForCreatePage");
+  cy.intercept("https://localhost:7259/api/game/GetAllGames").as(
+    "getAllGamesForGamePage"
+  );
   cy.visit("/create");
   cy.url().should("include", "/create");
+  cy.wait("@getCategoriesForCreatePage");
+  cy.wait("@getDifficultyLevelsForCreatePage");
+  cy.wait("@getAllGamesForGamePage");
 });
 Cypress.Commands.add("visitHomePage", () => {
   cy.visit("/");
@@ -35,7 +47,7 @@ Cypress.Commands.add("apiLogin", (username, password) => {
 Cypress.Commands.add("showAddCategoryModal", () => {
   cy.apiLogin("admin", "PasswordAdmin1!");
   cy.visitCreatePage();
-  cy.get(".btn-secondary").click();
+  cy.get(".create-secondary-button").click();
 });
 
 Cypress.Commands.add("enterCategoryInfo", (categoryName, imageUrl) => {
@@ -51,7 +63,7 @@ Cypress.Commands.add("addItem", (cardName, cardImageUrl) => {
 });
 
 Cypress.Commands.add("forceOpenItemModal", () => {
-  cy.get(".button-group > .btn-primary").click({ force: true });
+  cy.get(".create-primary-button").first().click({ force: true });
 });
 
 Cypress.Commands.add("cleanUp", (url) => {

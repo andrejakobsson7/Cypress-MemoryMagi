@@ -18,8 +18,9 @@ And I clear the image-url field
 And I type "https://cdn.pixabay.com/photo/2019/03/24/12/19/harry-potter-4077473_1280.png" in the image-url field
 Then I should see a preview containing "Harry Potter" and the image src should be "https://cdn.pixabay.com/photo/2019/03/24/12/19/harry-potter-4077473_1280.png"
 
-Scenario: Remove newly added category image
+Scenario: Close and reopen add category-modal
 Given that I have already typed in category name field and image-url field
-When I click the button to remove already added image
-Then the image should disappear
-And the image-url field should be ""
+And I have closed the modal
+When I open the modal again
+Then the input fields should be empty
+And the preview should be restored

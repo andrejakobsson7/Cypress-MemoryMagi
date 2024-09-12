@@ -8,16 +8,16 @@ And I have opened the add category-modal
 Scenario: Save complete category
 Given that I have already typed in category name field and image-url field
 When I click the save category-button
-Then I should see "Hogwarts" in the list of available categories
+Then I should see category name in the list of available categories
 
 Scenario: Save category missing name
 Given that I have already typed in category name field and image-url field
 When I clear the category name field
 And I click the save category-button
-Then I should see an error message
+Then I should see an error message about missing category name
 
 Scenario: Save category missing image
 Given that I have already typed in category name field and image-url field
 When I clear the image-url field
 And I click the save category-button
-Then I should see an error message
+Then I should see an error message about missing category image

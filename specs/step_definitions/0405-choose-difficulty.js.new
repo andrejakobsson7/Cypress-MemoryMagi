@@ -1,14 +1,10 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-Given('that I am in on the home page', () => {
+Given('that I am logged', () => {
   // TODO: implement step
 });
 
-Given('When i choose to play a public game', () => {
-  // TODO: implement step
-});
-
-Given('before I try to start the game I choose a difficulty', () => {
+Given('standing on home page', () => {
   // TODO: implement step
 });
 
