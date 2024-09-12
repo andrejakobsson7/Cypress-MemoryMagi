@@ -1,8 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 Given("that I am on the landing and try to enter wrong", () => {
-  // sign out för att inte vara authorized
-  cy.apiLogout();
   cy.visit("http://localhost:3007/landingpage");
 });
 

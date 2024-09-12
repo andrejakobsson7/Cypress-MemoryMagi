@@ -2,6 +2,11 @@
 
 const baseUrl = require("../baseUrl");
 
+Cypress.Commands.add("visitLandingPage", () => {
+  cy.visit("/landingpage");
+  cy.url().should("include", "/landingpage");
+});
+
 Cypress.Commands.add("visitCreatePage", () => {
   cy.intercept("https://localhost:7259/api/category/GetCategories").as(
     "getCategoriesForCreatePage"

@@ -75,43 +75,45 @@ Before all tests, login as admin and add:
 - One private game
 - One public game
 And store them as cypress environment variables, so they can be reached from test cases.
-
-Then log out.
 */
 
 before(() => {
   //Log in as admin
-  cy.apiLogin("admin", "PasswordAdmin1!");
-  //Post new difficulty level
-  cy.makePost(
-    "https://localhost:7259/api/DifficultyLevel/PostDifficultyLevel",
-    newDifficultyLevel,
-    "newDifficultyLevel"
-  ).then(() => {
-    //Post new category
+  cy.apiLogin("admin", "PasswordAdmin1!").then(() => {
+    //Post new difficulty level
     cy.makePost(
-      "https://localhost:7259/api/Category",
-      newCategory,
-      "newCategory"
+      "https://localhost:7259/api/DifficultyLevel/PostDifficultyLevel",
+      newDifficultyLevel,
+      "newDifficultyLevel"
     ).then(() => {
-      //Get and set difficulty level-id
-      newPublicGame.DifficultyLevelId = Cypress.env("newDifficultyLevel").id;
-      newPrivateGame.DifficultyLevelId = Cypress.env("newDifficultyLevel").id;
-      //Get and set category id
-      newPublicGame.CategoryId = Cypress.env("newCategory").id;
-      newPrivateGame.CategoryId = Cypress.env("newCategory").id;
-      //Post public game
+      //Post new category
       cy.makePost(
-        "https://localhost:7259/api/game/PostGame",
-        newPublicGame,
-        "newPublicGame"
+        "https://localhost:7259/api/Category",
+        newCategory,
+        "newCategory"
       ).then(() => {
-        //Post private game
+        //Get and set difficulty level-id
+        newPublicGame.DifficultyLevelId = Cypress.env("newDifficultyLevel").id;
+        newPrivateGame.DifficultyLevelId = Cypress.env("newDifficultyLevel").id;
+        //Get and set category id
+        newPublicGame.CategoryId = Cypress.env("newCategory").id;
+        newPrivateGame.CategoryId = Cypress.env("newCategory").id;
+        //Post public game
         cy.makePost(
           "https://localhost:7259/api/game/PostGame",
-          newPrivateGame,
-          "newPrivateGame"
-        );
+          newPublicGame,
+          "newPublicGame"
+        ).then(() => {
+          //Post private game
+          cy.makePost(
+            "https://localhost:7259/api/game/PostGame",
+            newPrivateGame,
+            "newPrivateGame"
+          ).then(() => {
+            //Log out
+            cy.apiLogout();
+          });
+        });
       });
     });
   });
@@ -122,16 +124,18 @@ After all tests, delete everything that was added in the before hook.
 */
 
 after(() => {
-  //Delete category. By doing so, all created games related to that category will also be deleted automatically.
-  cy.cleanUp(
-    `https://localhost:7259/api/Category/DeleteCategory?categoryId=${newPrivateGame.CategoryId}`
-  ).then(() => {
-    //Remove difficulty level
+  cy.apiLogin("admin", "PasswordAdmin1!").then(() => {
+    //Delete category. By doing so, all created games related to that category will also be deleted automatically.
     cy.cleanUp(
-      `https://localhost:7259/api/DifficultyLevel/DeleteDifficultyLevel?difficultyLevelId=${newPrivateGame.DifficultyLevelId}`
+      `https://localhost:7259/api/Category/DeleteCategory?categoryId=${newPrivateGame.CategoryId}`
     ).then(() => {
-      //Log out
-      cy.apiLogout();
+      //Remove difficulty level
+      cy.cleanUp(
+        `https://localhost:7259/api/DifficultyLevel/DeleteDifficultyLevel?difficultyLevelId=${newPrivateGame.DifficultyLevelId}`
+      ).then(() => {
+        //Log out
+        cy.apiLogout();
+      });
     });
   });
 });

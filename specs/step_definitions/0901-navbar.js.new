@@ -1,0 +1,29 @@
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+
+Given('standing on the landing page', () => {
+  // TODO: implement step
+});
+
+Then('I should only see link to Home', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already in 0301-preview-category.js
+Given('that I am logged in', () => {});*/
+
+/* No duplicate steps, this one already above
+Given('standing on the landing page', () => {});*/
+
+Then('I should see all links', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already in 0301-preview-category.js
+Given('that I am logged in', () => {});*/
+
+/* No duplicate steps, this one already in 0701-home-filter.js
+Given('standing on the home page', () => {});*/
+
+Then('link to Home should look different compared to other links', () => {
+  // TODO: implement step
+});
