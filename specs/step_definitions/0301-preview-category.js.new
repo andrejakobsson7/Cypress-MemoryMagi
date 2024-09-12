@@ -48,14 +48,18 @@ Then('I should see a preview containing {string} and the image src should be {st
 /* No duplicate steps, this one already above
 Given('that I have already typed in category name field and image-url field', () => {});*/
 
-When('I click the button to remove already added image', () => {
+Given('I have closed the modal', () => {
   // TODO: implement step
 });
 
-Then('the image should disappear', () => {
+When('I open the modal again', () => {
   // TODO: implement step
 });
 
-Then('the image-url field should be {string}', (a) => {
+Then('the input fields should be empty', () => {
+  // TODO: implement step
+});
+
+Then('the preview should be restored', () => {
   // TODO: implement step
 });

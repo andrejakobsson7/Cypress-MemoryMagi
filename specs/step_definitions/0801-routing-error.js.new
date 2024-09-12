@@ -1,0 +1,17 @@
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+
+Given('that I am on the landing and try to enter wrong', () => {
+  // TODO: implement step
+});
+
+Given('I try to change my url to {string}', (a) => {
+  // TODO: implement step
+});
+
+When('the routes fail', () => {
+  // TODO: implement step
+});
+
+Then('I will not be able to see the games', () => {
+  // TODO: implement step
+});

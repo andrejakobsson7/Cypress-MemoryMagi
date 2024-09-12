@@ -73,6 +73,12 @@ Then("I should get a item validation error regarding image", () => {
   cy.get("#formCardImage").should("have.focus");
 });
 
+/*
+***
+Scenario: Save multiple items
+***
+*/
+
 Given("that I have already saved an item", () => {
   cy.addItem(
     "Hermione Granger",
@@ -83,7 +89,7 @@ Given("that I have already saved an item", () => {
 When("I save another one", () => {
   //The button is hidden by the navbar, which is why I have to use force.
   //I have not been able to use the built in scroll-options in Cypress to scroll to the top and then click, so this is my last resort.
-  cy.get(".button-group > .btn-primary").click({ force: true });
+  cy.get(".create-primary-button").first().click({ force: true });
   cy.addItem(
     "Rubeus Hagrid",
     "https://images.ctfassets.net/usf1vwtuqyxm/1HYtzDGOGI2UsCyqWcWUwo/0ad4fed4c0432c7e022f8bdc9f1df957/RubeusHagrid_WB_F3_HagridsFaceLookingSadBeforeExecution_Still_080615_Land.jpg"
@@ -91,7 +97,7 @@ When("I save another one", () => {
 });
 
 Then("I should see both items in the list of added items", () => {
-  cy.get(".card-list-container")
+  cy.get(".create-card-list-container")
     .find("img")
     .first()
     .should(
@@ -99,7 +105,7 @@ Then("I should see both items in the list of added items", () => {
       "src",
       "https://cdn.pixabay.com/photo/2024/02/16/12/17/gryffindor-8577461_1280.png"
     );
-  cy.get(".card-list-container")
+  cy.get(".create-card-list-container")
     .find("img")
     .last()
     .should(

@@ -4,25 +4,40 @@ import { Guid } from "js-guid";
 const guid = Guid.newGuid().toString();
 let newlyAddedGameId;
 
-//Scenario: Save empty game
+/*
+***
+Background
+***
+*/
+
 /* No duplicate steps, this one already in 0301-preview-category.js
 Given('that I am logged in', () => {});*/
 
 /* No duplicate steps, this one already in 0301-preview-category.js
 Given('standing on the create page', () => {});*/
 
+/*
+***
+Scenario: Save empty game
+***
+*/
+
 When("I click the button to create game", () => {
   cy.intercept("POST", "https://localhost:7259/api/game/PostGame").as(
     "postGame"
   );
-  cy.get(".form-section > .btn").click();
+  cy.get(".create-submit-button").click({ force: true });
 });
 
 Then("I should get an error message about missing game name", () => {
   cy.get("input").should("have.focus");
 });
 
-//Scenario: Save game without game type
+/*
+***
+Scenario: Save game without game type
+***
+*/
 
 Given("that I have already typed in game name-field", () => {
   // TODO: implement step
@@ -37,7 +52,11 @@ Then("I should get an error message about missing game type", () => {
   cy.get(":nth-child(2) > select").should("have.focus");
 });
 
-//Scenario: Save game without category
+/*
+***
+Scenario: Save game without category
+***
+*/
 
 /* No duplicate steps, this one already above
 Given('that I have already typed in game name-field', () => {});*/
@@ -54,7 +73,11 @@ Then("I should get an error message about missing category", () => {
   cy.get(":nth-child(3) > select").should("have.focus");
 });
 
-//Scenario: Save game without difficulty level
+/*
+***
+Scenario: Save game without difficulty level
+***
+*/
 
 /* No duplicate steps, this one already above
 Given('that I have already typed in game name-field', () => {});*/
@@ -73,7 +96,11 @@ Then("I should get an error message about missing difficulty level", () => {
   cy.get(":nth-child(4) > select").should("have.focus");
 });
 
-//Scenario: Save game without items
+/*
+***
+Scenario: Save game without items
+***
+*/
 
 /* No duplicate steps, this one already above
 Given('that I have already typed in game name-field', () => {});*/
@@ -85,8 +112,10 @@ Given('I have selected a game type', () => {});*/
 Given('I have selected a category', () => {});*/
 
 Given("I have selected difficulty level {string}", (easy) => {
-  // TODO: implement step
-  cy.get(":nth-child(4) > select").select(easy);
+  //Get difficulty id from cypress environment variable
+  const difficultyId = Cypress.env("newDifficultyLevel").id;
+  //Select by it's id converted as a string
+  cy.get(":nth-child(4) > select").select(difficultyId.toString());
 });
 
 /* No duplicate steps, this one already above
@@ -95,12 +124,6 @@ When('I click the button to create game', () => {});*/
 Then("I should get an error message about missing items", () => {
   cy.get(".modal").should("be.visible");
 });
-
-/*
-Skapa komplett spel
-Skapa spel med felaktigt antal kort för vald svårighetsgrad (ex. 3 kort till svårighetsgrad 'svår')
-
-*/
 
 /*
 ***
@@ -132,13 +155,16 @@ When('I click the button to create game', () => {});*/
 Then(
   "I should get an error message about wrong number of items for selected difficulty level",
   () => {
-    //Frontend should prevent posting game with wrong amount of cards.
-    //Backend should also prevent it.
-    cy.wait("@postGame");
-    cy.get(".modal").should("be.visible");
-    cy.get("@postGame")
-      .should("have.property", "response")
-      .should("have.property", "statusCode", 400);
+    cy.get(".modal-body").should("be.visible");
+    cy.get(".modal-body").should(
+      "include.text",
+      Cypress.env("newDifficultyLevel").nrOfCards
+    );
+    cy.get(".modal-body").should(
+      "include.text",
+      Cypress.env("newDifficultyLevel").name
+    );
+    cy.get("@postGame").should("be.null");
   }
 );
 

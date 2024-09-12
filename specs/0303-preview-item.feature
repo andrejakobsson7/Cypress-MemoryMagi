@@ -17,3 +17,10 @@ And I type "Harry Potter" in the item name field
 And I clear the item image-url field
 And I type "https://cdn.pixabay.com/photo/2019/03/24/12/19/harry-potter-4077473_1280.png" in the item image-url field
 Then I should see a preview containing "Harry Potter" and the item image src should be "https://cdn.pixabay.com/photo/2019/03/24/12/19/harry-potter-4077473_1280.png"
+
+Scenario: Close and reopen add item-modal
+Given that I have already typed in "Ron Weasley" in the item name field and "https://cdn.pixabay.com/photo/2012/04/12/11/53/harry-potter-29680_1280.png" in the image-url field
+And I have closed the add item-modal
+When I open the add item-modal again
+Then the item-input fields should be empty
+And the item-preview should be restored
