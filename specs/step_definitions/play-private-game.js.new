@@ -1,0 +1,17 @@
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+
+Given('I am logged in as Admin', () => {
+  // TODO: implement step
+});
+
+When('I click the private button', () => {
+  // TODO: implement step
+});
+
+When('I start a private game', () => {
+  // TODO: implement step
+});
+
+Then('I should see game starting', () => {
+  // TODO: implement step
+});
