@@ -1,0 +1,31 @@
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+
+/* No duplicate steps, this one already in GetToResultPage.js
+Given('that I am on the Landingpage', () => {});*/
+
+/* No duplicate steps, this one already in GetToResultPage.js
+When('I write {string} in the input with placeholder {string}', (a, b) => {});*/
+
+/* No duplicate steps, this one already in GetToResultPage.js
+When('I write {string} in the input with placeholder {string}', (a, b) => {});*/
+
+/* No duplicate steps, this one already in GetToResultPage.js
+When('I press the button containing {string}', (a) => {});*/
+
+/* No duplicate steps, this one already in GetToResultPage.js
+Then('the url should contain {string}', (a) => {});*/
+
+/* No duplicate steps, this one already in GetToResultPage.js
+Given('that I can see a category called {string}', (a) => {});*/
+
+/* No duplicate steps, this one already in GetToResultPage.js
+When('I press the button containing {string}', (a) => {});*/
+
+/* No duplicate steps, this one already in GetToResultPage.js
+When('I click the text in the dropdownlist containg {string}', (a) => {});*/
+
+/* No duplicate steps, this one already in GetToResultPage.js
+When('I press the button containing {string}', (a) => {});*/
+
+/* No duplicate steps, this one already in GetToResultPage.js
+Then('the url should contain {string}', (a) => {});*/

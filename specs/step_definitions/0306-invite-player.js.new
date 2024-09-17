@@ -1,0 +1,74 @@
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+
+/* No duplicate steps, this one already in 0301-preview-category.js
+Given('that I am logged in', () => {});*/
+
+/* No duplicate steps, this one already in 0301-preview-category.js
+Given('standing on the create page', () => {});*/
+
+Given('I have selected game type {string}', (a) => {
+  // TODO: implement step
+});
+
+Then('I should see a button to invite other players', () => {
+  // TODO: implement step
+});
+
+Given('that there exists another user', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+Given('I have selected game type {string}', (a) => {});*/
+
+When('I open the invite-players modal', () => {
+  // TODO: implement step
+});
+
+Then('I should see the newly registered user', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+Given('that there exists another user', () => {});*/
+
+/* No duplicate steps, this one already above
+Given('I have selected game type {string}', (a) => {});*/
+
+Given('I have opened the invite-players modal', () => {
+  // TODO: implement step
+});
+
+When('I click on the newly registered user', () => {
+  // TODO: implement step
+});
+
+When('I click on save users-button', () => {
+  // TODO: implement step
+});
+
+Then('I should see the list of invited users', () => {
+  // TODO: implement step
+});
+
+Then('I should not see a button to invite other players', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+Given('that there exists another user', () => {});*/
+
+/* No duplicate steps, this one already above
+Given('I have selected game type {string}', (a) => {});*/
+
+Given('I have invited one other player', () => {
+  // TODO: implement step
+});
+
+When('I select game type {string}', (a) => {
+  // TODO: implement step
+});
+
+Then('I should not see information about nr of invited users', () => {
+  // TODO: implement step
+});

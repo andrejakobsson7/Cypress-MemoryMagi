@@ -1,0 +1,17 @@
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+
+Given('that I am on the log in page', () => {
+  // TODO: implement step
+});
+
+Given('when i enter {string} and {string} into my input fields', (a, b) => {
+  // TODO: implement step
+});
+
+When('when i click logga in', () => {
+  // TODO: implement step
+});
+
+Then('I will enter the Home page', () => {
+  // TODO: implement step
+});

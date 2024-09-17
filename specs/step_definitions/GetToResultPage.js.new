@@ -1,0 +1,77 @@
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+
+Given('that I am on the Landingpage', () => {
+  // TODO: implement step
+});
+
+When('I write {string} in the input with placeholder {string}', (a, b) => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+When('I write {string} in the input with placeholder {string}', (a, b) => {});*/
+
+When('I press the button containing {string}', (a) => {
+  // TODO: implement step
+});
+
+Then('the url should contain {string}', (a) => {
+  // TODO: implement step
+});
+
+Given('that I can see a category called {string}', (a) => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+When('I press the button containing {string}', (a) => {});*/
+
+When('I click the text in the dropdownlist containg {string}', (a) => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+When('I press the button containing {string}', (a) => {});*/
+
+/* No duplicate steps, this one already above
+Then('the url should contain {string}', (a) => {});*/
+
+Given('the url should contain {string}', (a) => {
+  // TODO: implement step
+});
+
+Then('12 cards should be displayed', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+Given('the url should contain {string}', (a) => {});*/
+
+When('I click a card', () => {
+  // TODO: implement step
+});
+
+Then('the the card should be flipped', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+Given('the url should contain {string}', (a) => {});*/
+
+When('two cards that match are flipped', () => {
+  // TODO: implement step
+});
+
+Then('matching cards should be removed from the page', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+Given('the url should contain {string}', (a) => {});*/
+
+When('all of the cards are matched', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+Then('the url should contain {string}', (a) => {});*/

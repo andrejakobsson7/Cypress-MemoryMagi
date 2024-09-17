@@ -61,3 +61,15 @@ When('I click the button to filter on private games', () => {});*/
 Then('I should not see the private game that first user created', () => {
   // TODO: implement step
 });
+
+Given('that first user has created a new private game and invited second user to it', () => {
+  // TODO: implement step
+});
+
+When('the second user filters on private games', () => {
+  // TODO: implement step
+});
+
+Then('I should see the game that I have been invited to', () => {
+  // TODO: implement step
+});

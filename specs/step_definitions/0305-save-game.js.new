@@ -116,6 +116,31 @@ Given('I have selected difficulty level {string}', (a) => {});*/
 /* No duplicate steps, this one already in 0303-preview-item.js
 Given('I have opened the add item-modal', () => {});*/
 
+Given('I have added five items', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+When('I click the button to create game', () => {});*/
+
+/* No duplicate steps, this one already above
+Then('I should get an error message about wrong number of items for selected difficulty level', () => {});*/
+
+/* No duplicate steps, this one already above
+Given('that I have already typed in game name-field', () => {});*/
+
+/* No duplicate steps, this one already above
+Given('I have selected a game type', () => {});*/
+
+/* No duplicate steps, this one already above
+Given('I have selected a category', () => {});*/
+
+/* No duplicate steps, this one already above
+Given('I have selected difficulty level {string}', (a) => {});*/
+
+/* No duplicate steps, this one already in 0303-preview-item.js
+Given('I have opened the add item-modal', () => {});*/
+
 Given('I have added four items', () => {
   // TODO: implement step
 });
