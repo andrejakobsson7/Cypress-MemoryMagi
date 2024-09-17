@@ -76,29 +76,3 @@ When('I type {string} in the image-url field', (a) => {});*/
 
 /* No duplicate steps, this one already above
 Then('I should see a preview containing {string} and the image src should be {string}', (a, b) => {});*/
-
-/*
-***
-Scenario: Close and reopen add category-modal
-***
-*/
-/* No duplicate steps, this one already above
-Given('that I have already typed in category name field and image-url field', () => {});*/
-
-Given("I have closed the modal", () => {
-  cy.get(".btn-close").click();
-});
-
-When("I open the modal again", () => {
-  cy.get(".create-secondary-button").click();
-});
-
-Then("the input fields should be empty", () => {
-  cy.get("#formCategoryName").should("have.value", "");
-  cy.get("#formCategoryImage").should("have.value", "");
-});
-
-Then("the preview should be restored", () => {
-  cy.get("img").should("not.exist");
-  cy.get(".category-name").should("not.have.text", newCategoryName);
-});

@@ -1,0 +1,17 @@
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+
+Given('that I am on the landingpage', () => {
+  // TODO: implement step
+});
+
+Given('I click Skapa konto on the page', () => {
+  // TODO: implement step
+});
+
+When('I enter {string} and {string} and {string} into my input fields', (a, b, c) => {
+  // TODO: implement step
+});
+
+When('I click on Registrera i will get {string}', (a) => {
+  // TODO: implement step
+});

@@ -107,9 +107,10 @@ Cypress.Commands.add(
   }
 );
 
-Cypress.Commands.add("apiRegister", (username, password) => {
-  cy.request("POST", "https://localhost:7259/register", {
-    email: username,
+Cypress.Commands.add("apiRegister", (email, username, password) => {
+  cy.request("POST", "https://localhost:7259/api/Users/register", {
+    email: email,
+    username: username,
     password: password,
   }).then((response) => {
     expect(response).to.have.property("status", 200);
@@ -122,7 +123,7 @@ Cypress.Commands.add("apiLogout", () => {
   );
   const accessToken = localStorageObj.accessToken;
   cy.request({
-    url: "https://localhost:7259/logout",
+    url: "https://localhost:7259/api/Users/logout",
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -135,4 +136,20 @@ Cypress.Commands.add("apiLogout", () => {
       cy.clearLocalStorage();
     }
   });
+});
+
+Cypress.Commands.add("openInviteUsersModal", () => {
+  cy.intercept("https://localhost:7259/api/users/user").as("getCurrentUser");
+  cy.intercept("https://localhost:7259/api/users/users").as("getAllUsers");
+  cy.get(".create-button-group > :nth-child(2)").click({ force: true });
+  cy.wait("@getCurrentUser");
+  cy.wait("@getAllUsers");
+});
+
+Cypress.Commands.add("invitePlayer", (username) => {
+  cy.get(".mt-3").contains(username).first().click();
+});
+
+Cypress.Commands.add("saveInvitedPlayersToGame", () => {
+  cy.get(".modal-footer > .btn").click();
 });

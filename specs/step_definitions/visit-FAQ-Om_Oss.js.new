@@ -1,0 +1,24 @@
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+
+Given('I am on landingpage', () => {
+  // TODO: implement step
+});
+
+When('I click on FAQ', () => {
+  // TODO: implement step
+});
+
+Then('I should be on FAQ page', () => {
+  // TODO: implement step
+});
+
+/* No duplicate steps, this one already above
+Given('I am on landingpage', () => {});*/
+
+When('I click on OmOss', () => {
+  // TODO: implement step
+});
+
+Then('I should be on OmOss page', () => {
+  // TODO: implement step
+});
